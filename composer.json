@@ -1,0 +1,56 @@
+{
+    "name": "meevo/remote-pdf",
+    "description": "",
+    "keywords": [
+        "meevo",
+        "remote-pdf"
+    ],
+    "homepage": "https://github.com/meevo/remote-pdf",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Filip Pacurar",
+            "email": "filip@meevo.ca",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^6.3",
+        "illuminate/support": "5.8.*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "3.8.*",
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Meevo\\RemotePdf\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Meevo\\RemotePdf\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Meevo\\RemotePdf\\RemotePdfServiceProvider"
+            ],
+            "aliases": {
+                "RemotePdf": "Meevo\\RemotePdf\\RemotePdfFacade"
+            }
+        }
+    }
+}
