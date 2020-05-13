@@ -8,7 +8,7 @@ use RuntimeException;
 
 class RemotePdf
 {
-    public function request($view)
+    public function request($view, $options = [])
     {
         $encrypter = app('remotepdf.encrypter');
 
@@ -25,7 +25,8 @@ class RemotePdf
             ],
             \GuzzleHttp\json_encode([
                 'key' => $appKey,
-                'html' => base64_encode($encrypter->encrypt($view))
+                'html' => base64_encode($encrypter->encrypt($view)),
+                'options' => is_array($options) ? $options : [],
             ])
         );
 
